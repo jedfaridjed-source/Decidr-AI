@@ -1,0 +1,23 @@
+<div class="dashboard">
+  <div *ngFor="let item of feed" class="card" [ngClass]="getColor(item.finalSignal)">
+    
+    <div class="header">
+      <h3>{{ item.title }}</h3>
+      <span class="badge">{{ item.source }}</span>
+    </div>
+
+    <div class="meta">
+      <p>Market: <b>{{ item.market }}</b></p>
+      <p>Score: <b>{{ item.score }}</b></p>
+      <p>Impact: <b>{{ item.impact }}</b></p>
+    </div>
+
+    <div class="signal">
+      <span>{{ item.finalSignal }}</span>
+    </div>
+
+    <p class="reason">{{ item.reason }}</p>
+
+    <a [href]="item.url" target="_blank">Open source</a>
+  </div>
+</div>

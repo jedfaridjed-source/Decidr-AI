@@ -1,0 +1,66 @@
+<app-nav></app-nav>
+<div class="pricing-container">
+
+    <h1 class="title">Choose Your Plan</h1>
+    <p class="subtitle">Unlock smarter AI decisions in seconds</p>
+
+    <div class="pricing-grid">
+
+        <!-- BASIC -->
+        <div class="card">
+            <h2>Starter</h2>
+            <p class="price">$1</p>
+            <ul>
+                <li>✔ 3 AI decisions per month (perfect for testing)</li>
+                <li>✔ Access to all domains (Business, Crypto, Lifestyle)</li>
+                <li>✔ Fast responses with standard AI model</li>
+                <li>✔ No commitment — cancel anytime</li>
+            </ul>
+
+            <button routerLink="/decision" class="btn basic">
+                Starter
+            </button>
+        </div>
+
+        <!-- PRO (highlighted) -->
+        <div class="card highlight">
+            <div class="badge">Most Popular</div>
+
+            <h2>Pro</h2>
+            <p class="price">$4.99</p>
+
+            <ul>
+                <li>✔ Up to 100 AI-powered decisions per month</li>
+                <li>✔ Advanced reasoning engine (higher accuracy)</li>
+                <li>✔ Priority processing speed</li>
+                <li>✔ Confidence scoring with detailed insights</li>
+                <li>✔ Access to premium decision logic models</li>
+                <li>✔ Cancel anytime, no hidden fees</li>
+            </ul>
+
+            <button routerLink="/checkout/pro" class="btn pro">
+                Go Pro
+            </button>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="card">
+            <h2>Business</h2>
+            <p class="price">$29.99</p>
+
+            <ul>
+                <li>✔ Unlimited personal AI decision assistant</li>
+                <li>✔ Smart insights from news & market trends</li>
+                <li>✔ Real-time analytics dashboard</li>
+                <li>✔ Custom AI rules tailored to your goals</li>
+                <li>✔ Multi-domain intelligence (finance, lifestyle, strategy)</li>
+                <li>✔ Designed for professionals & entrepreneurs</li>
+            </ul>
+
+            <button routerLink="/checkout/business" class="btn business">
+                Get Business
+            </button>
+        </div>
+
+    </div>
+</div>

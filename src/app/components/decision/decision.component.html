@@ -1,0 +1,85 @@
+<app-nav></app-nav>
+
+<div class="container">
+
+  <!-- EMPTY STATE -->
+  <div *ngIf="messages.length === 0" class="center-state">
+
+    <h1>Decision AI</h1>
+    <p>Ask anything. Get instant decisions.</p>
+
+    <div class="center-input">
+
+      <select [(ngModel)]="category" class="select">
+        <option value="business">💼 Business</option>
+        <option value="crypto">₿ Crypto</option>
+        <option value="lifestyle">🌿 Lifestyle</option>
+      </select>
+
+      <input [(ngModel)]="question" class="input" placeholder="Ask your question..." />
+
+      <button (click)="ask()" class="btn">Ask AI</button>
+
+    </div>
+
+  </div>
+
+  <!-- CHAT MODE -->
+  <div *ngIf="messages.length > 0" class="chat-container">
+
+    <div class="chat-box">
+
+      <div *ngFor="let msg of messages" class="msg" [ngClass]="msg.type">
+
+        <div class="bubble">
+
+          <strong *ngIf="msg.type === 'user'">You</strong>
+          <strong *ngIf="msg.type === 'ai'">AI Decision</strong>
+
+          <p>{{ msg.text }}</p>
+
+          <!-- 👇 THIS IS THE FIX: AI RESPONSE DETAILS -->
+          <div *ngIf="msg.type === 'ai' && msg.data">
+
+            <h3>{{ msg.data.decision }}</h3>
+
+            <div class="confidence">
+              Confidence: {{ msg.data.confidence }}%
+            </div>
+
+            <ul>
+              <li *ngFor="let r of msg.data.reasons">
+                {{ r }}
+              </li>
+            </ul>
+
+          </div>
+
+          <span *ngIf="msg.category" class="tag">
+            {{ msg.category }}
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- INPUT BAR -->
+    <div class="input-bar">
+
+      <select [(ngModel)]="category" class="select small">
+        <option value="business">💼 Business</option>
+        <option value="crypto">₿ Crypto</option>
+        <option value="lifestyle">🌿 Lifestyle</option>
+      </select>
+
+      <input [(ngModel)]="question" class="input" placeholder="Type your message..." />
+
+      <button (click)="ask()" class="send-btn">➤</button>
+
+    </div>
+
+  </div>
+
+</div>
